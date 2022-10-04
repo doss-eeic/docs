@@ -10,7 +10,7 @@ macOS で gdb を使用するのはかなり面倒なので、lldb の利用を�
 
 1. ソースコードがあるフォルダを VS Code で開く。
 2. VS Code のアクティビティバー（左端の縦のバー）から「実行とデバッグ」を選択し、「launch.json ファイルを作成します」をクリック。メニューが出てくるのでどれかを選択（Chrome などいろいろなものがあるが、どれを選んでも良い。何も聞かれずにいきなり `launch.json` が作られる場合もある）。
-3. `.vscode/launch.json` というファイルができているので、これを例えば以下のように編集する。
+3. `.vscode/launch.json` というファイルができているので、これを例えば以下のように編集する（`program` は各自のインストール先に置き換える）。
 
     ```jsonc
     {
@@ -20,7 +20,7 @@ macOS で gdb を使用するのはかなり面倒なので、lldb の利用を�
           "name": "C/C++: debug",
           "type": "cppdbg",
           "request": "launch",
-          "program": "ビルドしたバイナリへの絶対パス",
+          "program": "/home/denjo/gnuplot_install/bin/gnuplot", // ビルドしたバイナリへの絶対パス
           "args": ["a.gnuplot"],          // 実行時引数
           "stopAtEntry": true,            // 実行後すぐに一旦止める
           "cwd": "${workspaceFolder}",    // 実行時の作業ディレクトリ
