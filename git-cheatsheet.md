@@ -83,7 +83,7 @@ origin  https://gitlab.com/inkscape/inkscape (push)
 
 この例では、origin という名前で fetch(pull), push した場合に `https://gitlab.com/inkscape/inkscape` に接続することを示す。
 
-### GitHub 以外から clone したリポジトリを GitHub に登録する
+### clone したリポジトリを GitHub に登録する
 
 git clone したリポジトリの中にいると仮定
 
