@@ -122,6 +122,31 @@ $ git checkout -b <新ブランチ名>
 $ git push -u origin <新ブランチ名>
 ```
 
+### 特定のコミットからブランチを作成する
+
+ある時点でのコミットから別の作業を開始したい場合。
+
+```bash
+# まず git のログを確認し、戻りたいコミットのハッシュ値（commit の横に書いてあるもの）を確認
+$ git log
+# 確認したコミットから新たにブランチを作成し、移動
+$ git checkout <ハッシュ値> -b <新ブランチ名>
+```
+
+上記作業のイメージ。`main` ブランチの `HEAD` にいるときに、`git checkout 234567 -b new-branch` して新しいブランチを作り、さらにそのブランチ上でコミット `567890` をした例。
+
+```mermaid
+gitGraph
+  commit id: "123456"
+  commit id: "234567"
+  branch new-branch
+  checkout main
+  commit id: "345678"
+  commit id: "456789" tag: "HEAD"
+  checkout new-branch
+  commit id: "567890"
+```
+
 ### 手元のブランチの一覧を見る
 
 ```bash
