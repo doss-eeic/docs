@@ -298,3 +298,29 @@ $ git reset --soft HEAD^
 # 直前のコミット前の状態にする
 $ git revert HEAD
 ```
+## 自分達の作業用リポジトリの立て方
+1. [does-eeic](https://github.com/doss-eeic)上に自分達のリポジトリを作る（PublicでもPrivateでもお好きな方で）、名前は「年度-班番号2桁-ソフトウェア名」にする。
+2. 次にチームの内1人がローカル環境にOSSのソースが入ったリポジトリを作るが、公開されているリポジトリをクローンする方法と公式が配布している tar ボールをダウンロードしてくる方法がある。**フォークは禁止**。後者についてはテキストも参照。以下ではgnuplotの例を示す。
+   1. クローンする場合。
+      ```bash
+      $ git clone git@github.com:gnuplot/gnuplot.git
+      $ cd gnuplot # ここで作業する
+      $ git remote rename origin upstream
+      ```
+   2. tar ボールでダウンロードする場合。
+      ```bash
+      $ wget https://sourceforge.net/projects/gnuplot/files/gnuplot/5.4.2/gnuplot-5.4.2.tar.gz
+      $ tar xvfz gnuplot-5.4.2.tar.gz
+      $ cd gnuplot-5.4.2 # ここで作業する
+      $ git init
+      ```
+3. リポジトリを登録してpush
+    ```bash
+    $ git remote add origin git@github.com:doss-eeic/2023-00-test.git
+    $ git branch -M main
+    $ git push -u origin main
+    ```
+4. 他のチームメンバーがリポジトリをクローンする。
+    ```bash
+    $ git clone git@github.com:doss-eeic/2023-00-test.git
+    ```
